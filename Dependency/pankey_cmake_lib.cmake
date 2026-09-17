@@ -23,23 +23,254 @@ function(pankey_load LOAD_TARGET DEPENDENCY_FILE)
 
 endfunction()
 
+function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
+
+    string(
+        REPLACE "-"
+        "_"
+        REPOSITORY_TARGET
+        "${REPOSITORY_NAME}"
+    )
+
+    # --------------------------------------------------------
+    # Already loaded as a CMake target
+    # --------------------------------------------------------
+
+    if(TARGET ${REPOSITORY_TARGET})
+
+        return()
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # Check local Pankey library
+    # --------------------------------------------------------
+
+    set(
+        REPOSITORY_LOCAL_PATH
+        "${PANKEY_LIBRARIES_ROOT}/${REPOSITORY_NAME}"
+    )
+
+    if(
+        EXISTS
+        "${REPOSITORY_LOCAL_PATH}/CMakeLists.txt"
+    )
+
+        return()
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # Temporary repository directory
+    # --------------------------------------------------------
+
+    if(NOT PANKEY_REPOSITORY_ROOT)
+
+        set(
+            PANKEY_REPOSITORY_ROOT
+            "${CMAKE_BINARY_DIR}/pankey/repositories"
+        )
+
+    endif()
+
+
+    set(
+        REPOSITORY_DOWNLOAD_PATH
+        "${PANKEY_REPOSITORY_ROOT}/${REPOSITORY_NAME}"
+    )
+
+
+    # --------------------------------------------------------
+    # Already downloaded
+    # --------------------------------------------------------
+
+    if(
+        EXISTS
+        "${REPOSITORY_DOWNLOAD_PATH}/CMakeLists.txt"
+    )
+
+        return()
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # Git
+    # --------------------------------------------------------
+
+    find_package(Git REQUIRED)
+
+
+    # --------------------------------------------------------
+    # Remove incomplete previous download
+    # --------------------------------------------------------
+
+    if(
+        EXISTS
+        "${REPOSITORY_DOWNLOAD_PATH}"
+    )
+
+        file(
+            REMOVE_RECURSE
+            "${REPOSITORY_DOWNLOAD_PATH}"
+        )
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # Create repository directory
+    # --------------------------------------------------------
+
+    file(
+        MAKE_DIRECTORY
+        "${PANKEY_REPOSITORY_ROOT}"
+    )
+
+
+    # --------------------------------------------------------
+    # Clone repository
+    # --------------------------------------------------------
+
+    message(
+        STATUS
+        "Pankey: downloading repository '${REPOSITORY_NAME}'"
+    )
+
+    execute_process(
+        COMMAND
+            "${GIT_EXECUTABLE}"
+            clone
+            "${REPOSITORY_URL}"
+            "${REPOSITORY_DOWNLOAD_PATH}"
+
+        RESULT_VARIABLE
+            GIT_RESULT
+
+        OUTPUT_VARIABLE
+            GIT_OUTPUT
+
+        ERROR_VARIABLE
+            GIT_ERROR
+    )
+
+
+    # --------------------------------------------------------
+    # Check Git result
+    # --------------------------------------------------------
+
+    if(NOT GIT_RESULT EQUAL 0)
+
+        message(
+            FATAL_ERROR
+            "pankey_repository(): failed to download repository "
+            "'${REPOSITORY_NAME}'.\n\n"
+            "URL: ${REPOSITORY_URL}\n"
+            "Git output:\n${GIT_OUTPUT}\n"
+            "Git error:\n${GIT_ERROR}"
+        )
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # Verify repository
+    # --------------------------------------------------------
+
+    if(
+        NOT EXISTS
+        "${REPOSITORY_DOWNLOAD_PATH}/CMakeLists.txt"
+    )
+
+        message(
+            FATAL_ERROR
+            "pankey_repository(): repository "
+            "'${REPOSITORY_NAME}' was downloaded successfully, "
+            "but does not contain a CMakeLists.txt file.\n\n"
+            "Path: ${REPOSITORY_DOWNLOAD_PATH}"
+        )
+
+    endif()
+
+endfunction()
+
 function(pankey_module MODULE_NAME)
 
-    set(MODULE_PATH
+    string(
+        REPLACE "-"
+        "_"
+        MODULE_TARGET
+        "${MODULE_NAME}"
+    )
+
+
+    # --------------------------------------------------------
+    # 1. Target already exists
+    # --------------------------------------------------------
+
+    if(TARGET ${MODULE_TARGET})
+
+        return()
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # 2. Check the normal/local library directory
+    # --------------------------------------------------------
+
+    set(
+        MODULE_PATH
         "${PANKEY_LIBRARIES_ROOT}/${MODULE_NAME}"
     )
 
-    string(REPLACE "-" "_" MODULE_TARGET "${MODULE_NAME}")
-
     if(
-        NOT TARGET ${MODULE_TARGET}
-        AND EXISTS "${MODULE_PATH}/CMakeLists.txt"
+        EXISTS
+        "${MODULE_PATH}/CMakeLists.txt"
     )
 
         add_subdirectory(
             "${MODULE_PATH}"
             "${MODULE_TARGET}${PANKEY_BUILD_SUFFIX}"
         )
+
+        return()
+
+    endif()
+
+
+    # --------------------------------------------------------
+    # 3. Check the temporary repository directory
+    # --------------------------------------------------------
+
+    if(NOT PANKEY_REPOSITORY_ROOT)
+
+        set(
+            PANKEY_REPOSITORY_ROOT
+            "${CMAKE_BINARY_DIR}/pankey/repositories"
+        )
+
+    endif()
+
+    set(
+        MODULE_REPOSITORY_PATH
+        "${PANKEY_REPOSITORY_ROOT}/${MODULE_NAME}"
+    )
+
+
+    if(
+        EXISTS
+        "${MODULE_REPOSITORY_PATH}/CMakeLists.txt"
+    )
+
+        add_subdirectory(
+            "${MODULE_REPOSITORY_PATH}"
+            "${MODULE_TARGET}${PANKEY_BUILD_SUFFIX}"
+        )
+
+        return()
 
     endif()
 
