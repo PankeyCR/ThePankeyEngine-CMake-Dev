@@ -1,0 +1,14 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : [],
+		"nodes" : []
+	},
+	"installers" : [],
+	"paths" : 
+	{
+		"build" : "ThePankeyEngine_Library_IO_build",
+		"source" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-IO"
+	}
+}

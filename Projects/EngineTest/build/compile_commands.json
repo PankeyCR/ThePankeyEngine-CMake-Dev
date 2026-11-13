@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Projects/EngineTest/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/EngineTest.dir/includes_CXX.rsp -g -std=gnu++20 -O3 -march=native -mtune=native -o CMakeFiles\\EngineTest.dir\\main.cpp.obj -c C:\\Users\\panke\\Documents\\ThePankeyEngine-CMake-Dev\\Projects\\EngineTest\\main.cpp",
+  "file": "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Projects/EngineTest/main.cpp",
+  "output": "CMakeFiles/EngineTest.dir/main.cpp.obj"
+}
+]

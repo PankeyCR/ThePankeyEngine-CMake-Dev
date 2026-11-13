@@ -1,25 +1,46 @@
 include("${CMAKE_CURRENT_LIST_DIR}/pankey_config.cmake")
 
+# ============================================================
+# Carga Global (Desde la carpeta de dependencias principal)
+# ============================================================
 function(pankey_load LOAD_TARGET DEPENDENCY_FILE)
 
     if(NOT TARGET ${LOAD_TARGET})
-
         add_library(
             ${LOAD_TARGET}
             INTERFACE
         )
-
     endif()
 
-    set(PANKEY_CURRENT_LOAD_TARGET
-        ${LOAD_TARGET}
-    )
+    # Apilar el target activo para soportar cargas recursivas
+    list(APPEND PANKEY_LOAD_TARGET_STACK ${LOAD_TARGET})
 
     include("${PANKEY_DEPENDENCY_ROOT}/${DEPENDENCY_FILE}")
 
-    set(PANKEY_CURRENT_LOAD_TARGET
-        ""
-    )
+    # Desapilar el target al terminar la ejecución del archivo
+    list(POP_BACK PANKEY_LOAD_TARGET_STACK)
+
+endfunction()
+
+# ============================================================
+# Carga Local (Relativa a la posición del script que la invoca)
+# ============================================================
+function(pankey_load_local LOAD_TARGET DEPENDENCY_FILE)
+
+    if(NOT TARGET ${LOAD_TARGET})
+        add_library(
+            ${LOAD_TARGET}
+            INTERFACE
+        )
+    endif()
+
+    # Apilar el target activo para soportar cargas recursivas
+    list(APPEND PANKEY_LOAD_TARGET_STACK ${LOAD_TARGET})
+
+    include("${CMAKE_CURRENT_LIST_DIR}/${DEPENDENCY_FILE}")
+
+    # Desapilar el target al terminar la ejecución del archivo
+    list(POP_BACK PANKEY_LOAD_TARGET_STACK)
 
 endfunction()
 
@@ -37,11 +58,8 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
     # --------------------------------------------------------
 
     if(TARGET ${REPOSITORY_TARGET})
-
         return()
-
     endif()
-
 
     # --------------------------------------------------------
     # Check local Pankey library
@@ -56,31 +74,24 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
         EXISTS
         "${REPOSITORY_LOCAL_PATH}/CMakeLists.txt"
     )
-
         return()
-
     endif()
-
 
     # --------------------------------------------------------
     # Temporary repository directory
     # --------------------------------------------------------
 
     if(NOT PANKEY_REPOSITORY_ROOT)
-
         set(
             PANKEY_REPOSITORY_ROOT
             "${CMAKE_BINARY_DIR}/pankey/repositories"
         )
-
     endif()
-
 
     set(
         REPOSITORY_DOWNLOAD_PATH
         "${PANKEY_REPOSITORY_ROOT}/${REPOSITORY_NAME}"
     )
-
 
     # --------------------------------------------------------
     # Already downloaded
@@ -90,18 +101,14 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
         EXISTS
         "${REPOSITORY_DOWNLOAD_PATH}/CMakeLists.txt"
     )
-
         return()
-
     endif()
-
 
     # --------------------------------------------------------
     # Git
     # --------------------------------------------------------
 
     find_package(Git REQUIRED)
-
 
     # --------------------------------------------------------
     # Remove incomplete previous download
@@ -111,14 +118,11 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
         EXISTS
         "${REPOSITORY_DOWNLOAD_PATH}"
     )
-
         file(
             REMOVE_RECURSE
             "${REPOSITORY_DOWNLOAD_PATH}"
         )
-
     endif()
-
 
     # --------------------------------------------------------
     # Create repository directory
@@ -128,7 +132,6 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
         MAKE_DIRECTORY
         "${PANKEY_REPOSITORY_ROOT}"
     )
-
 
     # --------------------------------------------------------
     # Clone repository
@@ -156,13 +159,11 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
             GIT_ERROR
     )
 
-
     # --------------------------------------------------------
     # Check Git result
     # --------------------------------------------------------
 
     if(NOT GIT_RESULT EQUAL 0)
-
         message(
             FATAL_ERROR
             "pankey_repository(): failed to download repository "
@@ -171,9 +172,7 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
             "Git output:\n${GIT_OUTPUT}\n"
             "Git error:\n${GIT_ERROR}"
         )
-
     endif()
-
 
     # --------------------------------------------------------
     # Verify repository
@@ -183,7 +182,6 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
         NOT EXISTS
         "${REPOSITORY_DOWNLOAD_PATH}/CMakeLists.txt"
     )
-
         message(
             FATAL_ERROR
             "pankey_repository(): repository "
@@ -191,7 +189,6 @@ function(pankey_repository REPOSITORY_NAME REPOSITORY_URL)
             "but does not contain a CMakeLists.txt file.\n\n"
             "Path: ${REPOSITORY_DOWNLOAD_PATH}"
         )
-
     endif()
 
 endfunction()
@@ -205,17 +202,13 @@ function(pankey_module MODULE_NAME)
         "${MODULE_NAME}"
     )
 
-
     # --------------------------------------------------------
     # 1. Target already exists
     # --------------------------------------------------------
 
     if(TARGET ${MODULE_TARGET})
-
         return()
-
     endif()
-
 
     # --------------------------------------------------------
     # 2. Check the normal/local library directory
@@ -230,28 +223,22 @@ function(pankey_module MODULE_NAME)
         EXISTS
         "${MODULE_PATH}/CMakeLists.txt"
     )
-
         add_subdirectory(
             "${MODULE_PATH}"
             "${MODULE_TARGET}${PANKEY_BUILD_SUFFIX}"
         )
-
         return()
-
     endif()
-
 
     # --------------------------------------------------------
     # 3. Check the temporary repository directory
     # --------------------------------------------------------
 
     if(NOT PANKEY_REPOSITORY_ROOT)
-
         set(
             PANKEY_REPOSITORY_ROOT
             "${CMAKE_BINARY_DIR}/pankey/repositories"
         )
-
     endif()
 
     set(
@@ -259,19 +246,15 @@ function(pankey_module MODULE_NAME)
         "${PANKEY_REPOSITORY_ROOT}/${MODULE_NAME}"
     )
 
-
     if(
         EXISTS
         "${MODULE_REPOSITORY_PATH}/CMakeLists.txt"
     )
-
         add_subdirectory(
             "${MODULE_REPOSITORY_PATH}"
             "${MODULE_TARGET}${PANKEY_BUILD_SUFFIX}"
         )
-
         return()
-
     endif()
 
 endfunction()   
@@ -279,45 +262,36 @@ endfunction()
 function(pankey_level LEVEL_NAME)
 
     if(NOT TARGET ${LEVEL_NAME})
-
         add_library(
             ${LEVEL_NAME}
             INTERFACE
         )
-
     endif()
 
     foreach(MODULE_NAME ${ARGN})
-
         pankey_module(${MODULE_NAME})
 
         string(REPLACE "-" "_" MODULE_TARGET "${MODULE_NAME}")
 
         if(TARGET ${MODULE_TARGET})
-
             target_link_libraries(
                 ${LEVEL_NAME}
                 INTERFACE
                     ${MODULE_TARGET}
             )
-
         endif()
-
     endforeach()
-
-    # if(TARGET ${PANKEY_CURRENT_LOAD_TARGET})
-
-    #     target_link_libraries(
-    #         ${PANKEY_CURRENT_LOAD_TARGET}
-    #         INTERFACE
-    #             ${LEVEL_NAME}
-    #     )
-
-    # endif()
 
 endfunction()
 
 function(pankey_dependency)
+
+    # Obtener el target activo de la cima de la pila
+    if(PANKEY_LOAD_TARGET_STACK)
+        list(GET PANKEY_LOAD_TARGET_STACK -1 CURRENT_LOAD_TARGET)
+    else()
+        set(CURRENT_LOAD_TARGET "")
+    endif()
 
     set(PREVIOUS_LEVEL "")
 
@@ -331,41 +305,43 @@ function(pankey_dependency)
         endif()
 
         if(PREVIOUS_LEVEL)
-
             target_link_libraries(
                 ${CURRENT_LEVEL}
                 INTERFACE
                 ${PREVIOUS_LEVEL}
             )
-
         endif()
 
         set(PREVIOUS_LEVEL ${CURRENT_LEVEL})
 
     endforeach()
 
-    if(PREVIOUS_LEVEL)
-
+    # Vincular el resultado de la cadena al target activo actual
+    if(PREVIOUS_LEVEL AND TARGET ${CURRENT_LOAD_TARGET})
         target_link_libraries(
-            ${PANKEY_CURRENT_LOAD_TARGET}
+            ${CURRENT_LOAD_TARGET}
             INTERFACE
             ${PREVIOUS_LEVEL}
         )
-
     endif()
 
 endfunction()
 
 function(pankey_external)
 
-    if(TARGET ${PANKEY_CURRENT_LOAD_TARGET})
+    # Obtener el target activo de la cima de la pila
+    if(PANKEY_LOAD_TARGET_STACK)
+        list(GET PANKEY_LOAD_TARGET_STACK -1 CURRENT_LOAD_TARGET)
+    else()
+        set(CURRENT_LOAD_TARGET "")
+    endif()
 
+    if(TARGET ${CURRENT_LOAD_TARGET})
         target_link_libraries(
-            ${PANKEY_CURRENT_LOAD_TARGET}
+            ${CURRENT_LOAD_TARGET}
             INTERFACE
                 ${ARGN}
         )
-
     endif()
 
 endfunction()

@@ -1,0 +1,501 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/pankey_cmake_lib.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/pankey_config.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/4.1.1/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/4.1.1/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/4.1.1/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/WindowsPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "build/CMakeFiles/4.1.1/CMakeRCCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeRCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-windres.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-C-ABI.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Windows-GNU-CXX-ABI.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Linker/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "C:/Program Files/CMake/share/cmake-4.1/Modules/Platform/Linker/Windows-GNU.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Utility.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Meta.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Memory.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Ownership.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_DataStructure.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Type.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Support.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Event.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Runtime.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_System.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Library.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Windows.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Dependency/CMake_Dependency/Engine_Tests.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Utility-Base/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Utility-Log/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Utility-Test/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Meta-Reflection/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Meta-Transform/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Memory-Allocator/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Ownership-Holder/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Ownership-Object/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-DataStructure-Array/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-DataStructure-List/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-DataStructure-Map/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Array/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Invoke/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-List/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Map/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Color/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Data/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-File/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Image/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Logger/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Print/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Reflection/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Serialization/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Thread/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Math/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Event-Map/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Event-Policy/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Runtime-List/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Runtime-Map/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Runtime-Policy/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-System-Application-Object/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-System-Application-Policy/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-System-ECS/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-System-Hardware/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-AI/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-File/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-IO/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Network/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Render/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Tools/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Utility-Log-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-File-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-System-Hardware-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Network-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Print-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Library-Thread-Windows/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-File-Windows-Test/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Support-Data-Test/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-DataStructure-Array-Test/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Array-Test/CMakeLists.txt"
+		},
+		{
+			"isExternal" : true,
+			"path" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/libraries/ThePankeyEngine-Type-Map-Test/CMakeLists.txt"
+		},
+		{
+			"path" : "App/CMakeLists.txt"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Projects/EngineTest/build",
+		"source" : "C:/Users/panke/Documents/ThePankeyEngine-CMake-Dev/Projects/EngineTest"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 1
+	}
+}
